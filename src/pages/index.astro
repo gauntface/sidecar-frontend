@@ -1,10 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SigninButton from '../components/SigninButton.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Sidecar</h1>
-		<p><a href="/signin">Sign In</a></p>
-	</main>
+<Layout title="Sidecars">
+	<div class="l-fs">
+		<main>
+			<h1>Sidecars</h1>
+			<p>A work-in-progress project to improve GitHub notifications and
+				workflow.</p>
+			<p><SigninButton>Sign In</SigninButton></p>
+		</main>
+		<Footer />
+	</div>
 </Layout>
+
+<style>
+	.l-fs {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr auto;
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		height: 100vh;
+		place-items: center;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: var(--width);
+	}
+</style>
