@@ -11,6 +11,3 @@
   --width: calc(100vw - (2 * 8vw));
 }
 
-body {
-  color: var(--color-text);
-}
