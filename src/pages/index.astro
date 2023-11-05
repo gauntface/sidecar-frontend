@@ -7,10 +7,9 @@ import Footer from '../components/Footer.astro';
 <Layout title="Sidecars">
 	<div class="l-fs">
 		<main>
-			<h1>Sidecars</h1>
+			<h1 class="c-sidecar">Sidecars</h1>
 			<p>A work-in-progress project to improve GitHub notifications and
 				workflow.</p>
-			<p><SigninButton>Sign In</SigninButton></p>
 		</main>
 		<Footer />
 	</div>
@@ -29,9 +28,28 @@ import Footer from '../components/Footer.astro';
 
 	main {
 		display: flex;
+		max-width: 300px;
+		gap: calc(var(--padding)*2);
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		width: var(--width);
+		text-align: center;
+		margin: calc(var(--padding)*4) 0;
+	}
+
+	main p {
+		margin: 0;
+	}
+
+	.c-sidecar {
+		width: min(48vw, 80%);
+		aspect-ratio: 1/1;
+		text-indent: -9999px;
+		background-image: url('/images/logos/mascot-only.svg');
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin: 0;
 	}
 </style>

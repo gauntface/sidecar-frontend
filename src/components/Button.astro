@@ -1,6 +1,7 @@
 ---
 export enum Modifier {
   Highlight = "highlight",
+  Subtle = "subtle",
 }
 
 interface Props {
@@ -29,7 +30,12 @@ if (modifier) {
   }
 
   .btn.highlight {
-    color: var(--color-primary);
-    background-color: var(--color-beige);
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+
+  .btn.subtle {
+    background-color: transparent;
+    color: var(--color-text);
   }
 </style>

@@ -1,0 +1,51 @@
+---
+import SigninButton from './SigninButton.astro';
+import Button from './Button.astro';
+
+import '../styles/variables.css';
+import { Image } from 'astro:assets';
+import FlatText from '../../public/images/logos/flat-text.svg';
+---
+<nav>
+  <a href="/">
+    <Image src={FlatText} alt="Sidecars" />
+  </a>
+  <div class="c-menu">
+  {
+    Astro.cookies.has("session") ?
+      <SigninButton modifier="subtle" />
+      <Button href="/dashboard">Dashboard</Button>
+    :
+      <SigninButton />
+  }
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--width);
+    margin: calc(var(--padding)*2) auto;
+  }
+
+  a {
+    max-width: 50%;
+  }
+
+  img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .c-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	  gap: var(--padding);
+  }
+</style>

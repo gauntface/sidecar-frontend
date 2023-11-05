@@ -1,14 +1,16 @@
 :root {
-  --color-background: #f6f1ec;
-  --color-beige: #EBD5B8;
-  --pink: #EFBC9C;
-  --red: #EA572A;
-  --color-primary: #0B3F30;
-  --color-secondary: #E39828;
+  --color-background: #F3EDE1;
+    --color-primary: #D7A301;
+    --color-secondary: #D6CAB6;
+    --color-text: #1D1D1D;
 
   --padding: 12px;
   --s-padding: 1rem;
   --l-padding: 3rem;
   --xl-padding: 4rem;
   --width: calc(100vw - (2 * 8vw));
+}
+
+body {
+  color: var(--color-text);
 }
