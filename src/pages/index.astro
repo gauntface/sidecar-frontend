@@ -1,44 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import CenterLayout from '../layouts/CenterLayout.astro';
 import SigninButton from '../components/SigninButton.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Sidecars">
+<CenterLayout title="Sidecars">
 	<div class="l-fs">
-		<main>
-			<h1 class="c-sidecar">Sidecars</h1>
-			<p>A work-in-progress project to improve GitHub notifications and
-				workflow.</p>
-		</main>
-		<Footer />
+		<h1 class="c-sidecar">Sidecars</h1>
+		<p>A <strong><u>work-in-progress</u></strong> project to improve GitHub notifications and
+			workflow.</p>
 	</div>
-</Layout>
+</CenterLayout>
 
 <style>
 	.l-fs {
 		display: grid;
+		max-width: 300px;
+		margin: 0 auto;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr auto;
 		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-		height: 100vh;
+		grid-row-gap: calc(var(--padding)*2);
 		place-items: center;
-	}
-
-	main {
-		display: flex;
-		max-width: 300px;
-		gap: calc(var(--padding)*2);
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: var(--width);
 		text-align: center;
-		margin: calc(var(--padding)*4) 0;
 	}
 
-	main p {
+	.l-fs p {
 		margin: 0;
 	}
 

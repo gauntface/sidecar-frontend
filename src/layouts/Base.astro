@@ -1,0 +1,74 @@
+---
+interface Props {
+	title: string;
+  bodyClass?: string;
+}
+
+const { title, bodyClass } = Astro.props;
+import '../styles/variables.css';
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Sidecar" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+	</head>
+	<body class={bodyClass}>
+		<slot />
+		<script async defer src="https://beampipe.io/js/tracker.js" data-beampipe-domain="sidecars.dev"></script>
+	</body>
+</html>
+
+<style is:global>
+	body, html {
+		margin: 0;
+		min-height: 100vh;
+	}
+
+	body {
+		background: var(--color-background);
+		color: var(--color-text);
+		font-family: var(--system-font-stack);
+	}
+
+  a {
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+  p > a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  h1, h2, h3, h4, hgroup p {
+    font-family: 'Lilita One', var(--system-font-stack);
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  hgroup *:first-child {
+    margin-bottom: calc(var(--padding) / 2);
+  }
+
+  hgroup p {
+    margin: 0;
+  }
+
+</style>

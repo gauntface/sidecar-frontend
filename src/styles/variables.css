@@ -9,5 +9,6 @@
   --l-padding: 3rem;
   --xl-padding: 4rem;
   --width: calc(100vw - (2 * 8vw));
+  --system-font-stack: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 

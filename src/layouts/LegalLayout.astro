@@ -6,42 +6,19 @@ interface Props {
 const { title } = Astro.props;
 
 import '../styles/variables.css';
+import Base from './Base.astro';
 import Footer from '../components/Footer.astro';
 import NavBar from '../components/NavBar.astro';
 ---
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Sidecar" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="c-legal">
-    <NavBar />
-    <main class="c-legal__main">
-		  <slot />
-    </main>
-    <Footer />
-		<script async defer src="https://beampipe.io/js/tracker.js" data-beampipe-domain="sidecars.dev"></script>
-	</body>
-</html>
+<Base title={title} bodyClass="c-legal">
+  <NavBar />
+	<main class="c-legal__main">
+		<slot />
+  </main>
+  <Footer />
+</Base>
 
 <style is:global>
-	body {
-    min-height: 100vh;
-		margin: 0;
-		background: var(--color-background);
-		color: var(--color-text);
-		font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-	}
-
-	a {
-		color: inherit;
-		text-decoration: none;
-		cursor: pointer;
-	}
 
   .c-legal {
     display: flex;
@@ -55,7 +32,6 @@ import NavBar from '../components/NavBar.astro';
   }
 
   .c-legal__main a {
-    text-decoration: underline;
-    font-weight: 600;
+
   }
 </style>

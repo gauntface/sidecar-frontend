@@ -1,8 +1,7 @@
 ---
 import { app } from "../firebase/server";
 import { getAuth } from "firebase-admin/auth";
-import Layout from "../layouts/Layout.astro";
-import Footer from '../components/Footer.astro';
+import TopLayout from "../layouts/TopLayout.astro";
 
 const auth = getAuth(app);
 
@@ -10,7 +9,7 @@ const auth = getAuth(app);
 if (!Astro.cookies.has("session")) {
   return Astro.redirect("/signin");
 }
-const sessionCookie = Astro.cookies.get("session").value;
+const sessionCookie = Astro.cookies.get("session")!.value;
 const decodedCookie = await auth.verifySessionCookie(sessionCookie);
 const user = await auth.getUser(decodedCookie.uid);
 
@@ -19,10 +18,7 @@ if (!user) {
 }
 ---
 
-<Layout title="Sidecars Dashboard">
-	<main>
-    <h1>Welcome {user.displayName}</h1>
-    <p>We are happy to see you here</p>
-  </main>
-  <Footer />
-</Layout>
+<TopLayout title="Sidecars Dashboard">
+  <h1>Welcome {user.displayName}</h1>
+  <p>We are happy to see you here</p>
+</TopLayout>
