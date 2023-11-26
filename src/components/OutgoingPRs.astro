@@ -1,0 +1,17 @@
+---
+
+---
+<div>TODO: Display data</div>
+
+<script>
+  const response = await fetch(`${import.meta.env.PUBLIC_API_SERVER}/github/outgoing-prs`, {
+    headers: {
+      'Authorization': 'test',
+    },
+  });
+  if (!response.ok) {
+    console.error(`Response is not ok: `, response.statusText, response.status);
+    console.error(await response.text());
+  }
+  console.log(`Resposne ok: `, await response.text());
+</script>

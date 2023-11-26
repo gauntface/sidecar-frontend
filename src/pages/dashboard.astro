@@ -2,6 +2,7 @@
 import { app } from "../firebase/server";
 import { getAuth } from "firebase-admin/auth";
 import TopLayout from "../layouts/TopLayout.astro";
+import OutgoingPRs from "../components/OutgoingPRs.astro";
 
 const auth = getAuth(app);
 
@@ -13,6 +14,8 @@ const sessionCookie = Astro.cookies.get("session")!.value;
 const decodedCookie = await auth.verifySessionCookie(sessionCookie);
 const user = await auth.getUser(decodedCookie.uid);
 
+console.log(decodedCookie);
+
 if (!user) {
   return Astro.redirect("/signin");
 }
@@ -21,4 +24,5 @@ if (!user) {
 <TopLayout title="Sidecars Dashboard">
   <h1>Welcome {user.displayName}</h1>
   <p>We are happy to see you here</p>
+  <OutgoingPRs />
 </TopLayout>
