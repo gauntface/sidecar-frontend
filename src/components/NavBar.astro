@@ -6,17 +6,22 @@ import '../styles/variables.css';
 import { Image } from 'astro:assets';
 import FlatText from '../../public/images/logos/flat-text.svg';
 ---
+<script>
+  import { getUser } from "../logic/Auth";
+  const user = getUser();
+</script>
+
 <nav>
   <a href="/">
     <Image src={FlatText} alt="Sidecars" />
   </a>
   <div class="c-menu">
   {
-    Astro.cookies.has("session") ?
+    user ?
       <SigninButton modifier="subtle" />
       <Button href="/dashboard">Dashboard</Button>
     :
-      <SigninButton />
+      <SigninButton url="/dashboard" />
   }
   </div>
 </nav>

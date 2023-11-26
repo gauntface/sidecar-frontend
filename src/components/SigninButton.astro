@@ -2,42 +2,34 @@
 import Button from './Button.astro';
 ---
 {
-  Astro.cookies.has("session") ?
-    <form action="/api/auth/signout">
-      <Button data-signin-btn {...Astro.props}>Sign Out</Button>
-    </form>
-  :
-    <Button data-signin-btn {...Astro.props}>Sign In</Button>
+  <Button data-signin-btn {...Astro.props}>Sign In</Button>
 }
 
 
 <script>
-  import {
-    getAuth,
-    inMemoryPersistence,
-    signInWithPopup,
-    GithubAuthProvider
-  } from "firebase/auth";
-  import { app } from "../firebase/client";
-
-  const auth = getAuth(app);
-  // This will prevent the browser from storing session data
-  auth.setPersistence(inMemoryPersistence);
+  import { signInUser, signOutUser, getUser } from "../logic/Auth";
 
   const signinBtns = document.querySelectorAll('[data-signin-btn]');
-  for (const b of signinBtns) {
-    b.addEventListener('click', async (e) => {
-      const provider = new GithubAuthProvider();
-      const userCredential = await signInWithPopup(auth, provider);
-      const idToken = await userCredential.user.getIdToken();
-      const res = await fetch("/api/auth/signin", {
-        headers: {
-          Authorization: `Bearer ${idToken}`,
-        },
-      });
 
-      if (res.redirected) {
-        window.location.assign(res.url);
+  const user = getUser();
+  for (const b of signinBtns) {
+    if (user) {
+      signinBtns.textContent = 'Sign In';
+    } else {
+      signinBtns.textContent = 'Sign Out';
+    }
+    b.addEventListener('click', async (e) => {
+      const user = getUser();
+      if (user) {
+        signOutUser();
+      } else {
+        let url = undefined;
+        const button = e.target as HTMLButtonElement;
+        const urlAttrib = button.attributes.getNamedItem('url');
+        if (urlAttrib) {
+          url = urlAttrib.value;
+        }
+        signInUser(url);
       }
     });
   }
