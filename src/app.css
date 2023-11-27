@@ -1,8 +1,8 @@
 :root {
   --color-background: #F3EDE1;
-    --color-primary: #D7A301;
-    --color-secondary: #D6CAB6;
-    --color-text: #1D1D1D;
+  --color-primary: #D7A301;
+  --color-secondary: #D6CAB6;
+  --color-text: #1D1D1D;
 
   --padding: 12px;
   --s-padding: 1rem;
@@ -10,5 +10,13 @@
   --xl-padding: 4rem;
   --width: calc(100vw - (2 * 8vw));
   --system-font-stack: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-}
 
+  font-family: var(--system-font-stack);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}

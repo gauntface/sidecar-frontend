@@ -1,23 +1,14 @@
----
-import SigninButton from './SigninButton.astro';
-import Button from './Button.astro';
+<script lang="ts">
+  import flatText from '../../../public/logos/flat-text.svg';
+  import SigninButton from './SigninButton.svelte';
+</script>
 
-import '../styles/variables.css';
-import { Image } from 'astro:assets';
-import FlatText from '../../public/images/logos/flat-text.svg';
----
 <nav>
   <a href="/">
-    <Image src={FlatText} alt="Sidecars" />
+    <img src={flatText} alt="Sidecars Logo" />
   </a>
   <div class="c-menu">
-  {
-    Astro.cookies.has("session") ?
-      <SigninButton modifier="subtle" />
-      <Button href="/dashboard">Dashboard</Button>
-    :
-      <SigninButton />
-  }
+    <SigninButton />
   </div>
 </nav>
 
