@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from './ui/components/Header.svelte';
+  import Header from './ui/components/NavBar.svelte';
 </script>
 
 <main>
