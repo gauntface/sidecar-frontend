@@ -5,7 +5,7 @@ current_datetime=$(date "+%Y-%m-%d.%H-%M")
 
 # Define the source file and the destination directory
 temp_file=".env.tmp"
-source_file=".env.development"
+source_file=".env"
 backup_file=".env.${current_datetime}.backup"
 
 # Log in to bitwardn
@@ -15,6 +15,8 @@ else
     echo "Need to log in to bitwarden."
     npx @bitwarden/cli login
 fi
+
+npx @bitwarden/cli sync
 
 # Start debug output
 set -x

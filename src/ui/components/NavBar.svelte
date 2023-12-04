@@ -1,5 +1,5 @@
 <script lang="ts">
-  import flatText from '../../../public/logos/flat-text.svg';
+  import flatText from '../../../public/images/logos/flat-text.svg';
   import SigninButton from './SigninButton.svelte';
 </script>
 

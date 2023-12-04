@@ -10,19 +10,11 @@
   --xl-padding: 4rem;
   --width: calc(100vw - (2 * 8vw));
   --system-font-stack: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-
-  font-family: var(--system-font-stack);
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
 }
 
 body,
-html {
+html,
+#app {
   margin: 0;
   min-height: 100vh;
 }
@@ -39,6 +31,10 @@ a {
   cursor: pointer;
 }
 
+a>img {
+  /* Remove the extra padding around images */
+  display: block;
+}
 p>a {
   text-decoration: underline;
   font-weight: 600;
@@ -71,13 +67,7 @@ hgroup p {
 
 /* Everything after this is from the basiclayout */
 
-body,
-html {
-  margin: 0;
-  min-height: 100vh;
-}
-
-body {
+#app {
   display: flex;
   flex-direction: column;
 
@@ -93,8 +83,3 @@ main {
   margin: calc(var(--padding)*2) auto;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
