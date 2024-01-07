@@ -5,16 +5,23 @@
 </script>
 
 <Base>
-  <NavBar />
-  <main>
-    <slot />
-  </main>
-  <Footer />
+  <div class="l-c app-fh">
+    <NavBar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </div>
 </Base>
 
 <style global>
-  main {
-    flex: 1;
+  .l-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .l-c main {
     width: 100%;
     max-width: var(--width);
     margin: calc(var(--padding) * 2) auto;

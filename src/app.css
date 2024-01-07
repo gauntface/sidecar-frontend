@@ -19,6 +19,10 @@ html,
   min-height: 100vh;
 }
 
+#app .app-fh {
+  flex: 1;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-text);
@@ -75,11 +79,3 @@ hgroup p {
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
-
-main {
-  flex: 1;
-  width: 100%;
-  max-width: var(--width);
-  margin: calc(var(--padding)*2) auto;
-}
-

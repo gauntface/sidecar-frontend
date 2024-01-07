@@ -1,6 +1,6 @@
 <script lang="ts">
-  import flatText from '../../../public/images/logos/flat-text.svg';
-  import SigninButton from './SigninButton.svelte';
+  import flatText from "../../assets/flat-text.svg";
+  import SigninButton from "./SigninButton.svelte";
 </script>
 
 <nav>
@@ -20,7 +20,7 @@
     justify-content: space-between;
     width: 100%;
     max-width: var(--width);
-    margin: calc(var(--padding)*2) auto;
+    margin: calc(var(--padding) * 2) auto;
   }
 
   a {
@@ -37,6 +37,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-	  gap: var(--padding);
+    gap: var(--padding);
   }
 </style>

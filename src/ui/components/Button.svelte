@@ -6,20 +6,26 @@
 </script>
 
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   export let href: string | undefined = undefined;
   export let modifier: Modifier | undefined = undefined;
 
-  const classes = ['btn'];
+  const dispatch = createEventDispatcher();
+  function onClick() {
+    dispatch("click", null);
+  }
+
+  const classes = ["btn"];
   if (modifier) {
     classes.push(modifier);
   }
-
 </script>
 
 {#if href}
-<a class={classes.join(' ')} href={href}><slot /></a>
+  <a class={classes.join(" ")} {href} on:click={onClick}><slot /></a>
 {:else}
-<button class={classes.join(' ')}><slot /></button>
+  <button class={classes.join(" ")} on:click={onClick}><slot /></button>
 {/if}
 
 <style>
