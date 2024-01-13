@@ -1,0 +1,81 @@
+:root {
+  --color-background: #F3EDE1;
+  --color-primary: #D7A301;
+  --color-secondary: #D6CAB6;
+  --color-text: #1D1D1D;
+
+  --padding: 12px;
+  --s-padding: 1rem;
+  --l-padding: 3rem;
+  --xl-padding: 4rem;
+  --width: calc(100vw - (2 * 8vw));
+  --system-font-stack: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+body,
+html,
+#app {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app .app-fh {
+  flex: 1;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--system-font-stack);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a>img {
+  /* Remove the extra padding around images */
+  display: block;
+}
+p>a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+hgroup p {
+  font-family: 'Lilita One', var(--system-font-stack);
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 3.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+hgroup *:first-child {
+  margin-bottom: calc(var(--padding) / 2);
+}
+
+hgroup p {
+  margin: 0;
+}
+
+/* Everything after this is from the basiclayout */
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}

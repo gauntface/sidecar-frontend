@@ -1,0 +1,8 @@
+import '../../app.css'
+import Dashboard from './Dashboard.svelte'
+
+const app = new Dashboard({
+  target: document.getElementById('app'),
+})
+
+export default app
