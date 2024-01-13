@@ -1,35 +1,35 @@
 <script lang="ts">
   import Button, { Modifier } from "./Button.svelte";
 
-  import {
-    getAuth,
-    inMemoryPersistence,
-    signInWithPopup,
-    GithubAuthProvider,
-  } from "firebase/auth";
-  import { app } from "../../logic/auth/firebase";
+  import { auth } from "../../logic/auth/firebase";
 
   export let modifier: Modifier | undefined = undefined;
+  export let redirect: string | undefined = undefined;
 
-  const auth = getAuth(app);
-  // This will prevent the browser from storing session data
-  auth.setPersistence(inMemoryPersistence);
+  let isLoggedIn = !!auth.user;
+  auth.addEventListener("user-change", () => {
+    isLoggedIn = !!auth.user;
+  });
 
-  async function signIn() {
-    console.log("Sign In <--------------");
-    const provider = new GithubAuthProvider();
-    const userCredential = await signInWithPopup(auth, provider);
-    const idToken = await userCredential.user.getIdToken();
-    const res = await fetch("/api/auth/signin", {
-      headers: {
-        Authorization: `Bearer ${idToken}`,
-      },
-    });
-
-    if (res.redirected) {
-      window.location.assign(res.url);
+  async function signIn(redirect: string | undefined) {
+    try {
+      await auth.signIn();
+      if (redirect) {
+        window.location.assign(redirect);
+      }
+    } catch (err) {
+      console.error("Failed to sign in user: ", err);
     }
+  }
+
+  async function signOut() {
+    await auth.signOut();
+    window.location.assign("/");
   }
 </script>
 
-<Button {modifier} on:click={signIn}>Sign In</Button>
+{#if isLoggedIn}
+  <Button {modifier} on:click={() => signOut()}>Sign Out</Button>
+{:else}
+  <Button {modifier} on:click={() => signIn(redirect)}>Sign In</Button>
+{/if}

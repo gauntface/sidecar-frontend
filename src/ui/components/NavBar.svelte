@@ -8,7 +8,7 @@
     <img src={flatText} alt="Sidecars Logo" />
   </a>
   <div class="c-menu">
-    <SigninButton />
+    <SigninButton redirect={"/dashboard"} />
   </div>
 </nav>
 
