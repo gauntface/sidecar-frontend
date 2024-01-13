@@ -6,7 +6,7 @@
   "engines" : {
     "npm" : "use-pnpm",
     "pnpm": ">=8.0.0",
-    "node" : ">=21.0.0"
+    "node" : ">=18.x"
   },
   "scripts": {
     "dev": "vite",
