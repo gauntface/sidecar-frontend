@@ -2,7 +2,7 @@
   console.log(`OutgoingPRs`);
   async function go() {
     const response = await fetch(
-      `${import.meta.env.PUBLIC_API_SERVER}/github/outgoing-prs`,
+      `${import.meta.env.VITE_API_SERVER}/github/outgoing-prs`,
       {
         headers: {
           Authorization: "test",
